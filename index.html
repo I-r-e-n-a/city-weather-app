@@ -11,10 +11,57 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/756ca1daf7.js"
+      crossorigin="anonymous"
+    ></script>
     <title>City Weather</title>
   </head>
   <body>
-    <h1>Hello world</h1>
+    <div class="container">
+      <div class="weather-wrap">
+        <div class="row">
+          <div class="col-6">
+            <h1>Riga</h1>
+            <div>Saturday, 30th of April</div>
+            <div>14:00</div>
+            <div><span>6°</span><span>C | F</span></div>
+            <div>Sunny</div>
+            <div><i class="fa-solid fa-sun"></i></div>
+            <div><span>Precipitation:</span><span>5%</span></div>
+            <div><span>Wind:</span><span>10 km/h, NNE</span></div>
+          </div>
+          <div class="col-6">
+            <form class="input-group mb-3" id="city-form">
+              <input
+                type="text"
+                class="form-control"
+                id="city-input"
+                placeholder="Enter your city here"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="button-addon2"
+              >
+                🔍
+              </button>
+            </form>
+            <button type="button" class="btn btn-outline-success" id="location">
+              Current location
+            </button>
+          </div>
+        </div>
+      </div>
+      <small
+        ><a href="https://github.com/I-r-e-n-a/city-weather-app" target="_blank"
+          >Open source code</a
+        >
+        by Irena Vercmane
+      </small>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
