@@ -4,63 +4,85 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Fredoka&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/756ca1daf7.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="src/style.css" />
     <title>City Weather</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-wrap">
-        <div class="row">
-          <div class="col-6">
-            <h1>Riga</h1>
-            <div>Saturday, 30th of April</div>
-            <div>14:00</div>
-            <div><span>6°</span><span>C | F</span></div>
-            <div>Sunny</div>
-            <div><i class="fa-solid fa-sun"></i></div>
-            <div><span>Precipitation:</span><span>5%</span></div>
-            <div><span>Wind:</span><span>10 km/h, NNE</span></div>
-          </div>
-          <div class="col-6">
-            <form class="input-group mb-3" id="city-form">
-              <input
-                type="text"
-                class="form-control"
-                id="city-input"
-                placeholder="Enter your city here"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
+      <div class="weather-app-wrap">
+        <div class="weather-app">
+          <div class="row">
+            <div class="col-6 today-weather">
+              <div class="card main">
+                <h1>Riga</h1>
+                <ul>
+                  <li>Saturday, 30th of April</li>
+                  <li>14:00</li>
+                  <li>
+                    <span id="current-temp">6°</span
+                    ><span id="celsius">C | </span
+                    ><span id="fahrenheit">F</span>
+                  </li>
+                  <li>Sunny</li>
+                  <li><i class="fa-solid fa-sun"></i></li>
+                  <li><span>Precipitation:</span><span>5%</span></li>
+                  <li><span>Wind:</span><span>10 km/h, NNE</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6">
+              <form class="input-group mb-3" id="city-form">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city-input"
+                  placeholder="Enter your city here"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  🔍
+                </button>
+              </form>
               <button
-                class="btn btn-outline-secondary"
                 type="button"
-                id="button-addon2"
+                class="btn btn-outline-success"
+                id="location"
               >
-                🔍
+                Current location
               </button>
-            </form>
-            <button type="button" class="btn btn-outline-success" id="location">
-              Current location
-            </button>
+            </div>
           </div>
         </div>
+        <small
+          ><a
+            href="https://github.com/I-r-e-n-a/city-weather-app"
+            target="_blank"
+            >Open source code</a
+          >
+          by Irena Vercmane
+        </small>
       </div>
-      <small
-        ><a href="https://github.com/I-r-e-n-a/city-weather-app" target="_blank"
-          >Open source code</a
-        >
-        by Irena Vercmane
-      </small>
     </div>
     <script src="src/app.js"></script>
   </body>
