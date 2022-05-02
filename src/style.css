@@ -3,34 +3,63 @@ body {
 }
 
 .weather-app-wrap {
-  max-width: 900px;
+  max-width: 75%;
   margin: 50px auto;
 }
 .weather-app {
   padding: 50px;
-  background-color: aquamarine;
-  border: 1px solid grey;
-  border-radius: 50px;
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/755/original/city-background-edite.jpg?1648902432");
+  background-position: center;
+  border-radius: 30px;
 }
-
+.main {
+  border-radius: 10px;
+}
 .today-weather {
   text-align: center;
 }
-
 h1 {
-  font-size: 70px;
+  font-size: 65px;
+  font-weight: 600;
+  padding-top: 15px;
   text-transform: capitalize;
 }
-
-ul {
-  list-style: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+.all-current {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  color: rgb(68, 68, 68);
 }
-
+.conditions {
+  font-size: 15px;
+  font-weight: 500;
+}
+.actual-icon {
+  display: block;
+  font-size: 55px;
+  padding-top: 10px;
+}
 #current-temp {
   font-size: 60px;
-  font-weight: bolder;
-  padding-top: 15px;
+  font-weight: 650;
+  padding-top: 10px;
+}
+#current-temp-text {
+  font-size: 13px;
+  font-weight: light;
+  line-height: 1px;
+  padding-bottom: 30px;
+  color: rgb(112, 112, 112);
+}
+
+.location-btn {
+  float: right;
+  background-color: rgb(255, 255, 255, 0.8);
+  color: rgb(68, 68, 68);
+  border: rgb(68, 68, 68);
+}
+
+#celsius,
+#temp-dash,
+#fahrenheit {
+  font-size: 18px;
 }
