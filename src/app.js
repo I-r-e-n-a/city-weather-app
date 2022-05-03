@@ -1,5 +1,58 @@
+function displayDate(timestamp) {
+  let date = new Date();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let currentDate = date.getDate();
+  if (currentDate === 1 || currentDate === 21 || currentDate === 31) {
+    currentDate = `${currentDate}st`;
+  }
+  if (currentDate === 2 || currentDate === 22) {
+    currentDate = `${currentDate}nd`;
+  }
+  if (currentDate === 3 || currentDate === 23) {
+    currentDate = `${currentDate}rd`;
+  }
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[date.getMonth()];
+  return `${day}, ${currentDate} of ${month}`;
+}
+
+function displayTime(timestamp) {
+  let date = new Date();
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
 function displayTemp(response) {
-  console.log(response.data);
   document.querySelector("#current-city").innerHTML = city;
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     response.data.main.temp
@@ -13,6 +66,11 @@ function displayTemp(response) {
   document.querySelector("#current-wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )} km/h`;
+
+  let currentDate = document.querySelector("#date");
+  currentDate.innerHTML = displayDate(response.data.coord.dt * 1000);
+  let currentTime = document.querySelector("#time");
+  currentTime.innerHTML = displayTime(response.data.coord.dt * 1000);
 }
 
 let apiKey = "1226c04775770540034fbff39a889d84";
