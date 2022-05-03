@@ -53,6 +53,7 @@ function displayTime(timestamp) {
 }
 
 function displayTemp(response) {
+  console.log(response.data);
   document.querySelector("#current-city").innerHTML = city;
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     response.data.main.temp
@@ -66,7 +67,12 @@ function displayTemp(response) {
   document.querySelector("#current-wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )} km/h`;
-
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   let currentDate = document.querySelector("#date");
   currentDate.innerHTML = displayDate(response.data.coord.dt * 1000);
   let currentTime = document.querySelector("#time");
