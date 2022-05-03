@@ -53,7 +53,6 @@ function displayTime(timestamp) {
 }
 
 function displayTemp(response) {
-  console.log(response.data);
   document.querySelector("#current-city").innerHTML = city;
   document.querySelector("#current-temp").innerHTML = `${Math.round(
     response.data.main.temp
@@ -79,7 +78,20 @@ function displayTemp(response) {
   currentTime.innerHTML = displayTime(response.data.coord.dt * 1000);
 }
 
-let apiKey = "1226c04775770540034fbff39a889d84";
+function search(city) {}
+
+function cityInput(event) {
+  event.preventDefault();
+  let cityInputValue = document.querySelector("#city-input").value;
+  search(cityInputValue.value);
+}
+
+let searchForm = document.querySelector("#city-form");
+searchForm.addEventListener("submit", cityInput);
+let searchButton = document.querySelector("#button-addon2");
+searchButton.addEventListener("click", cityInput);
+
 let city = "Madrid";
+let apiKey = "1226c04775770540034fbff39a889d84";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemp);
