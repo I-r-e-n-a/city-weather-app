@@ -32,13 +32,15 @@
             <div class="col-6 today-weather">
               <div class="card main">
                 <h1 id="current-city"></h1>
-                <div id="date">Saturday, 30th of April</div>
-                <div id="time">14:00</div>
+                <div id="date"></div>
+                <div id="time"></div>
                 <div class="actual-temp">
-                  <span id="current-temp"></span>
-                  <span id="celsius">C</span>
-                  <span id="temp-dash"> | </span>
-                  <span id="fahrenheit">F</span>
+                  <span id="current-temp">°</span>
+                  <span>
+                    <a class ="selected-units" id="celsius" href="#">C</a>
+                    <span id="temp-dash"> | </span>
+                    <a id="fahrenheit" href="#">F</a>
+                  </span>
                 </div>
                 <div id="current-temp-text">Current temperature</div>
                 <div class="actual-icon"><img id="icon" /></div>

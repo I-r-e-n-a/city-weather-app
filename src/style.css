@@ -64,8 +64,16 @@ h1 {
 #temp-dash,
 #fahrenheit {
   font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+.selected-units {
+  font-weight: bolder;
 }
 
+.selected-units:hover {
+  cursor: default;
+}
 #current-conditions {
   text-transform: capitalize;
 }

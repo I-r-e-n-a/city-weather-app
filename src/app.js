@@ -19,6 +19,8 @@ function displayDate(timestamp) {
   }
   if (currentDate === 3 || currentDate === 23) {
     currentDate = `${currentDate}rd`;
+  } else {
+    currentDate = `${currentDate}th`;
   }
 
   let months = [
@@ -53,45 +55,70 @@ function displayTime(timestamp) {
 }
 
 function displayTemp(response) {
-  document.querySelector("#current-city").innerHTML = city;
-  document.querySelector("#current-temp").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°`;
-  document.querySelector("#current-conditions").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector(
-    "#current-humidity"
-  ).innerHTML = `${response.data.main.humidity}%`;
-
-  document.querySelector("#current-wind").innerHTML = `${Math.round(
-    response.data.wind.speed
-  )} km/h`;
+  let currentCity = document.querySelector("#current-city");
+  let currentTemp = document.querySelector("#current-temp");
+  let currentConditions = document.querySelector("#current-conditions");
+  let currentHumidity = document.querySelector("#current-humidity");
+  let currentWind = document.querySelector("#current-wind");
   let iconElement = document.querySelector("#icon");
+  let currentDate = document.querySelector("#date");
+  let currentTime = document.querySelector("#time");
+
+  celsiusTemperature = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = `${celsiusTemperature}°`;
+  currentCity.innerHTML = response.data.name;
+  currentConditions.innerHTML = response.data.weather[0].description;
+  currentHumidity.innerHTML = `${response.data.main.humidity}%`;
+  currentWind.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
+  currentDate.innerHTML = displayDate(response.data.coord.dt * 1000);
+  currentTime.innerHTML = displayTime(response.data.coord.dt * 1000);
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  let currentDate = document.querySelector("#date");
-  currentDate.innerHTML = displayDate(response.data.coord.dt * 1000);
-  let currentTime = document.querySelector("#time");
-  currentTime.innerHTML = displayTime(response.data.coord.dt * 1000);
 }
 
-function search(city) {}
+function search(city) {
+  let apiKey = "1226c04775770540034fbff39a889d84";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
+}
 
-function cityInput(event) {
+function handlleForm(event) {
   event.preventDefault();
-  let cityInputValue = document.querySelector("#city-input").value;
-  search(cityInputValue.value);
+  let city = document.querySelector("#city-input").value;
+  search(city);
 }
 
 let searchForm = document.querySelector("#city-form");
-searchForm.addEventListener("submit", cityInput);
+searchForm.addEventListener("submit", handlleForm);
 let searchButton = document.querySelector("#button-addon2");
-searchButton.addEventListener("click", cityInput);
+searchButton.addEventListener("click", handlleForm);
 
-let city = "Madrid";
-let apiKey = "1226c04775770540034fbff39a889d84";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayTemp);
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
+  tempElement.innerHTML = `${fahrenheitTemp}°`;
+  fahrenheit.classList.add("selected-units");
+  celsius.classList.remove("selected-units");
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = `${celsiusTemperature}°`;
+  celsius.classList.add("selected-units");
+  fahrenheit.classList.remove("selected-units");
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitTemp = document.querySelector("#fahrenheit");
+fahrenheitTemp.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusTemp = document.querySelector("#celsius");
+celsiusTemp.addEventListener("click", displayCelsiusTemp);
+
+search("Madrid");
