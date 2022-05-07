@@ -54,6 +54,32 @@ function displayTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-3">
+          <div class="card next-weather">
+             <div class="card-body">
+               <div class="next-day">${day}</div>
+                  <i class="fa-solid fa-sun"></i>
+                  <div>
+                    <span class="next-max-temp">10° </span>
+                     <span class="next-min-temp"> 6°</span>
+                  </div>
+                      <div class="next-conditions">Scattered clouds</div>
+                </div>
+            </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayTemp(response) {
   let currentCity = document.querySelector("#current-city");
   let currentTemp = document.querySelector("#current-temp");
@@ -121,4 +147,5 @@ fahrenheitTemp.addEventListener("click", displayFahrenheitTemp);
 let celsiusTemp = document.querySelector("#celsius");
 celsiusTemp.addEventListener("click", displayCelsiusTemp);
 
+displayForecast();
 search("Madrid");
