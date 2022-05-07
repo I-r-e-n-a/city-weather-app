@@ -15,10 +15,12 @@ body {
 }
 .main {
   border-radius: 10px;
+  min-width: min-content;
 }
 .today-weather {
   text-align: center;
 }
+
 h1 {
   font-size: 65px;
   font-weight: 600;
@@ -76,4 +78,29 @@ h1 {
 }
 #current-conditions {
   text-transform: capitalize;
+}
+
+.next-weather {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  min-width: min-content;
+  height: 150px;
+  text-align: center;
+  word-wrap: normal;
+}
+.next-day {
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+.next-conditions {
+  font-size: 13px;
+}
+.next-max-temp {
+  font-size: 25px;
+  font-weight: 500;
+  padding-bottom: 0;
+}
+.next-max-temp {
+  font-size: 21px;
 }
