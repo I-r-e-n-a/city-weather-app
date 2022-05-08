@@ -159,29 +159,4 @@ searchForm.addEventListener("submit", handlleForm);
 let searchButton = document.querySelector("#button-addon2");
 searchButton.addEventListener("click", handlleForm);
 
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
-  tempElement.innerHTML = `${fahrenheitTemp}°`;
-  fahrenheit.classList.add("selected-units");
-  celsius.classList.remove("selected-units");
-}
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#current-temp");
-  tempElement.innerHTML = `${celsiusTemperature}°`;
-  celsius.classList.add("selected-units");
-  fahrenheit.classList.remove("selected-units");
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitTemp = document.querySelector("#fahrenheit");
-fahrenheitTemp.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusTemp = document.querySelector("#celsius");
-celsiusTemp.addEventListener("click", displayCelsiusTemp);
-
 search("Madrid");

@@ -4,7 +4,7 @@ body {
 
 .weather-app-wrap {
   max-width: 75%;
-  min-width: 400px;
+  min-width: 872px;
   margin: 50px auto;
 }
 .weather-app {
@@ -40,7 +40,6 @@ h1 {
   display: flex;
   justify-content: center;
   font-size: 75px;
-  padding-top: 10px;
 }
 #current-temp {
   font-size: 60px;
@@ -62,20 +61,12 @@ h1 {
   border: rgb(68, 68, 68);
 }
 
-#celsius,
-#temp-dash,
-#fahrenheit {
-  font-size: 18px;
-  text-decoration: none;
-  color: black;
-}
-.selected-units {
-  font-weight: bolder;
+#celsius {
+  font-size: 50px;
+  font-weight: 400;
+  padding-top: 10px;
 }
 
-.selected-units:hover {
-  cursor: default;
-}
 #current-conditions {
   text-transform: capitalize;
 }
@@ -84,6 +75,7 @@ h1 {
   margin-top: 5px;
   margin-bottom: 20px;
   border-radius: 30px;
+  padding: 0;
   height: 150px;
   text-align: center;
   word-wrap: normal;
