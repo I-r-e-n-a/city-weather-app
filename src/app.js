@@ -87,7 +87,7 @@ function displayForecast(response) {
                      forecastDay.weather[0].icon
                    }@2x.png"
                    alt="weather-icon"
-                   width="45"
+                   width="40"
                    />
                   <div>
                     <span class="next-max-temp">${Math.round(
@@ -153,6 +153,22 @@ function handlleForm(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
+function handleLocation(location) {
+  navigator.geolocation.getCurrentPosition(handleLocation);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = `1226c04775770540034fbff39a889d84`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function currentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(handleLocation);
+}
+
+let locationButton = document.querySelector("#location");
+locationButton.addEventListener("click", currentLocation);
 
 let searchForm = document.querySelector("#city-form");
 searchForm.addEventListener("submit", handlleForm);
