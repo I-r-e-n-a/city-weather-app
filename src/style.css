@@ -3,13 +3,14 @@ body {
 }
 
 .weather-app-wrap {
-  max-width: 75%;
-  min-width: 872px;
-  margin: 30px auto;
+  max-width: 80%;
+  min-width: 870px;
+  max-height: 70%;
+  margin: 20px auto;
 }
 .weather-app {
-  padding: 40px;
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/755/original/city-background-edite.jpg?1648902432");
+  padding: 30px;
+  background-image: url("../images/city-background-edited.jpg");
   background-position: center;
   border-radius: 30px;
 }
@@ -19,27 +20,27 @@ body {
 }
 
 .next-weather {
+  border-radius: 35px;
+  height: 140px;
+  min-width: 40px;
   margin-top: 5px;
-  margin-bottom: 20px;
-  border-radius: 30px;
-  padding: 0;
-  height: 150px;
+  margin-bottom: 5px;
   text-align: center;
   word-wrap: normal;
-  min-width: 50px;
 }
+
 .today-weather {
   text-align: center;
 }
 h1 {
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 600;
   padding-top: 15px;
   text-transform: capitalize;
 }
 .all-current {
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   color: rgb(68, 68, 68);
 }
 .conditions {
@@ -76,7 +77,7 @@ h1 {
   opacity: 0.9;
 }
 #current-temp {
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 650;
   padding-top: 10px;
 }
