@@ -17,10 +17,6 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Fredoka&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/756ca1daf7.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>City Weather</title>
   </head>
@@ -34,7 +30,7 @@
                 <h1 id="current-city"></h1>
                 <div id="date"></div>
                 <div id="time"></div>
-                <div class="actual-temp">
+                <div>
                   <span id="current-temp"></span>
                   <span id="celsius">C</span>
                 </div>
@@ -46,12 +42,19 @@
                     <span class="current" id="current-conditions"></span>
                   </div>
                   <div>
+                    <span class="conditions">Max | min: </span>
+                    <span class="current" id="max-today"></span>
+                    <span class="current"> | </span>
+                    <span class="current" id="min-today"></span>
+                  </div>
+                  <div>
                     <span class="conditions">Humidity: </span>
                     <span class="current" id="current-humidity"></span>
                   </div>
                   <div>
                     <span class="conditions">Wind: </span>
                     <span class="current" id="current-wind"></span>
+                    <span class="current" id="wind-direction"></span>
                   </div>
                 </div>
               </div>

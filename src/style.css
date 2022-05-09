@@ -5,10 +5,10 @@ body {
 .weather-app-wrap {
   max-width: 75%;
   min-width: 872px;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 .weather-app {
-  padding: 50px;
+  padding: 40px;
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/030/755/original/city-background-edite.jpg?1648902432");
   background-position: center;
   border-radius: 30px;
@@ -17,10 +17,20 @@ body {
   border-radius: 10px;
   min-width: min-content;
 }
+
+.next-weather {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  padding: 0;
+  height: 150px;
+  text-align: center;
+  word-wrap: normal;
+  min-width: 50px;
+}
 .today-weather {
   text-align: center;
 }
-
 h1 {
   font-size: 65px;
   font-weight: 600;
@@ -41,18 +51,6 @@ h1 {
   justify-content: center;
   font-size: 75px;
 }
-#current-temp {
-  font-size: 60px;
-  font-weight: 650;
-  padding-top: 10px;
-}
-#current-temp-text {
-  font-size: 13px;
-  font-weight: light;
-  line-height: 1px;
-  padding-bottom: 30px;
-  color: rgb(112, 112, 112);
-}
 
 .location-btn {
   float: right;
@@ -61,26 +59,6 @@ h1 {
   border: rgb(68, 68, 68);
 }
 
-#celsius {
-  font-size: 50px;
-  font-weight: 400;
-  padding-top: 10px;
-}
-
-#current-conditions {
-  text-transform: capitalize;
-}
-
-.next-weather {
-  margin-top: 5px;
-  margin-bottom: 20px;
-  border-radius: 30px;
-  padding: 0;
-  height: 150px;
-  text-align: center;
-  word-wrap: normal;
-  min-width: 50px;
-}
 .next-day {
   font-size: 15px;
   padding-bottom: 5px;
@@ -96,4 +74,26 @@ h1 {
 .next-min-temp {
   font-size: 15px;
   opacity: 0.9;
+}
+#current-temp {
+  font-size: 60px;
+  font-weight: 650;
+  padding-top: 10px;
+}
+#current-temp-text {
+  font-size: 13px;
+  font-weight: light;
+  line-height: 1px;
+  padding-bottom: 30px;
+  color: rgb(68, 68, 68);
+}
+
+#celsius {
+  font-size: 50px;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+#current-conditions {
+  text-transform: capitalize;
 }

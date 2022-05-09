@@ -124,20 +124,48 @@ function displayTemp(response) {
   let iconElement = document.querySelector("#icon");
   let currentDate = document.querySelector("#date");
   let currentTime = document.querySelector("#time");
+  let maxTemp = document.querySelector("#max-today");
+  let minTemp = document.querySelector("#min-today");
+  let windDirection = document.querySelector("#wind-direction");
+  let windDegrees = response.data.wind.deg;
 
   celsiusTemperature = Math.round(response.data.main.temp);
   currentTemp.innerHTML = `${celsiusTemperature}°`;
   currentCity.innerHTML = response.data.name;
   currentConditions.innerHTML = response.data.weather[0].description;
   currentHumidity.innerHTML = `${response.data.main.humidity}%`;
-  currentWind.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
+  currentWind.innerHTML = `${Math.round(response.data.wind.speed)} km/h, `;
   currentDate.innerHTML = displayDate(response.data.coord.dt * 1000);
   currentTime.innerHTML = displayTime(response.data.coord.dt * 1000);
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  if (windDegrees >= 24 && windDegrees <= 68) {
+    windDirection.innerHTML = `NE`;
+  }
+  if (windDegrees >= 69 && windDegrees <= 113) {
+    windDirection.innerHTML = `E`;
+  }
+  if (windDegrees >= 114 && windDegrees <= 158) {
+    windDirection.innerHTML = `SE`;
+  }
+  if (windDegrees >= 159 && windDegrees <= 203) {
+    windDirection.innerHTML = `S`;
+  }
+  if (windDegrees >= 204 && windDegrees <= 248) {
+    windDirection.innerHTML = `SW`;
+  }
+  if (windDegrees >= 249 && windDegrees <= 293) {
+    windDirection.innerHTML = `W`;
+  }
+  if (windDegrees >= 294 && windDegrees <= 336) {
+    windDirection.innerHTML = `NW`;
+  } else windDirection.innerHTML = `N`;
 
   getForecast(response.data.coord);
 }
@@ -155,8 +183,8 @@ function handlleForm(event) {
 }
 function handleLocation(location) {
   navigator.geolocation.getCurrentPosition(handleLocation);
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
+  let lat = location.coords.latitude;
+  let lon = location.coords.longitude;
   let apiKey = `1226c04775770540034fbff39a889d84`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemp);
@@ -175,4 +203,4 @@ searchForm.addEventListener("submit", handlleForm);
 let searchButton = document.querySelector("#button-addon2");
 searchButton.addEventListener("click", handlleForm);
 
-search("Madrid");
+search("Riga");
