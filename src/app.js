@@ -127,7 +127,6 @@ function displayTemp(response) {
   let maxTemp = document.querySelector("#max-today");
   let minTemp = document.querySelector("#min-today");
   let windDirection = document.querySelector("#wind-direction");
-  let windDegrees = response.data.wind.deg;
 
   celsiusTemperature = Math.round(response.data.main.temp);
   currentTemp.innerHTML = `${celsiusTemperature}°`;
@@ -145,25 +144,20 @@ function displayTemp(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
+  let windDegrees = response.data.wind.deg;
   if (windDegrees >= 24 && windDegrees <= 68) {
     windDirection.innerHTML = `NE`;
-  }
-  if (windDegrees >= 69 && windDegrees <= 113) {
+  } else if (windDegrees >= 69 && windDegrees <= 113) {
     windDirection.innerHTML = `E`;
-  }
-  if (windDegrees >= 114 && windDegrees <= 158) {
+  } else if (windDegrees > 113 && windDegrees <= 158) {
     windDirection.innerHTML = `SE`;
-  }
-  if (windDegrees >= 159 && windDegrees <= 203) {
+  } else if (windDegrees > 158 && windDegrees <= 203) {
     windDirection.innerHTML = `S`;
-  }
-  if (windDegrees >= 204 && windDegrees <= 248) {
+  } else if (windDegrees > 203 && windDegrees <= 248) {
     windDirection.innerHTML = `SW`;
-  }
-  if (windDegrees >= 249 && windDegrees <= 293) {
+  } else if (windDegrees > 248 && windDegrees <= 293) {
     windDirection.innerHTML = `W`;
-  }
-  if (windDegrees >= 294 && windDegrees <= 336) {
+  } else if (windDegrees > 293 && windDegrees <= 336) {
     windDirection.innerHTML = `NW`;
   } else windDirection.innerHTML = `N`;
 
